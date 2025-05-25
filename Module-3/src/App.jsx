@@ -8,7 +8,7 @@ import { EXAMPLES } from './data.js'
 
 function App() {
  // this useState always returns as Array, now we are distructuring the array
- const [ selectedTopic, setSelectedTopic ] = useState('components');
+ const [ selectedTopic, setSelectedTopic ] = useState();
 
   //we can't use regular variable to update the UI
   //let tabContent = 'Please click a button';
@@ -57,7 +57,11 @@ function App() {
              <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
              <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          <div id='tab-content'>
+          
+            {!selectedTopic ? (
+              <p>Please select a topic.</p>
+            ) : (
+            <div id='tab-content'>
             <h3>{ EXAMPLES[selectedTopic].title}</h3>
             <p>{ EXAMPLES[selectedTopic].description}</p>
             <pre>
@@ -66,6 +70,7 @@ function App() {
               </code>
             </pre>
           </div>
+            )}
         </section>
         
       </main>
