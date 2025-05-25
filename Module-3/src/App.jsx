@@ -1,3 +1,4 @@
+import { useState } from 'react';
 
 import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
@@ -5,14 +6,17 @@ import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
+ // this useState always returns as Array, now we are distructuring the array
+ const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
+
   //we can't use regular variable to update the UI
-  let tabContent = 'Please click a button';
+  //let tabContent = 'Please click a button';
 
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'jsx', 'props', 'state'
     // console.log(selectedButton);
-    tabContent = selectedButton;
-    console.log(tabContent);
+    setSelectedTopic(selectedButton);
+    //console.log(selectedTopic);
    }
 
   return (
@@ -52,7 +56,7 @@ function App() {
              <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
              <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {tabContent}
+          {selectedTopic}
         </section>
         
       </main>
