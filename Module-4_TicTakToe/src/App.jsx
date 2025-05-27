@@ -1,15 +1,18 @@
-import Player from "./components/Player.jsx";
+import Player from './components/Player.jsx';
 
 function App() {
-   return <main>
+  return (
+    <main>
       <div id="game-container">
         <ol id="players">
-          < Player name="Player 1" symbol="X" />
-          < Player name="Player 2" symbol="O" />
+          <Player name="Player 1" symbol="X" />
+          <Player name="Player 2" symbol="O" />
         </ol>
         GAME BOARD
       </div>
-   </main>
+      LOG
+    </main>
+  );
 }
 
-export default App
+export default App;
